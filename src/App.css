@@ -3,12 +3,36 @@
   height: 100vh;
 }
 
+h1{font-family: 'Times New Roman', Times, serif;
+color: black }
+
 body {
   background: tan;
 }
 
-#listButton{
-  height: 100px;
+.listings{
+  display: flex;
+  flex-wrap: wrap
+}
+
+.shoelisting{
+  margin: 20px;
+  border: 2px black solid;
+  width:400px;
+  
+  
+
+}
+
+
+.images{
+  display: flex;
+  justify-content: space-around;
+ 
+}
+
+.listButton{
+  height: 50px;
 }
 
 .modifiers {

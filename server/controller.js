@@ -1,11 +1,11 @@
 const shoes = [
   {
     id: 0,
-    brand: 'Allen Edmonds',
-    model: '5th Ave',
+    brand: 'RedWing',
+    model: 'Iron Ranger',
     size: 8,
-    condition: 'Worn 5 times',
-    price: 100,
+    condition: 'Used but good',
+    price: 80,
     bids: 0,
     highBidder: '',
     pin: 1111
@@ -17,6 +17,17 @@ const shoes = [
     size: 10.5,
     condition: 'Worn 5 times',
     price: 100,
+    highBidder: '',
+    bids: 0,
+    pin: 1111
+  },
+  {
+    id: 1,
+    brand: 'Allen Edmonds',
+    model: '5th Ave',
+    size: 10.5,
+    condition: 'Worn 4 times',
+    price: 99,
     highBidder: '',
     bids: 0,
     pin: 1111

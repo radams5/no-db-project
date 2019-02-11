@@ -95,7 +95,7 @@ export default class CombinedComponents extends Component {
   deleteShoes(id) {
     const { shoes, pinEntry } = this.state
     let confirmIdentity = false
-    let pinFiller = prompt('enter pin', '####')
+    let pinFiller = prompt('Remeber the highest bidder and then enter pin', '####')
 
     if (pinEntry == shoes.map(e => {
       if (e.pin == pinFiller) {
@@ -155,34 +155,47 @@ export default class CombinedComponents extends Component {
     return (
 
       <div>
-        <h1>Welcome to shoEbay</h1>
+        <h1>Welcome to <p>shoEbay</p></h1>
         <input placeholder='Brand' onChange={e => this.handleBrand(e.target.value)} value={this.state.brand} />
         <input placeholder='Model' onChange={e => this.handleModel(e.target.value)} value={this.state.model} />
         <input placeholder='Size' onChange={e => this.handleSize(e.target.value)} value={this.state.size} />
-        <input placeholder='Condition' onChange={e => this.handleCondition(e.target.value)} value={this.state.condition} />
+        <input placeholder='Condition' onChange={e => this.handleCondition(e.target.value)} value={this.state.condition} maxLength='45' />
         <input placeholder='Price' type='number' onChange={e => this.handlePrice(e.target.value)} value={this.state.price} />
         <input placeholder='Pin' onChange={e => this.handlePin(e.target.value)} value={this.state.pin} />
-        <ListShoes id='listButton' listShoes={this.listShoes} />
+        <div class='listButton'><ListShoes listShoes={this.listShoes} /></div>
 
         <div>
 
-          {this.state.shoes.map((shoe) => {
-            return <div class='shoelisting'>
-              <div>Brand: {shoe.brand}</div>
-              <div>Model: {shoe.model}</div>
-              <div>Size: {shoe.size}</div>
-              <div>Condition: {shoe.condition}</div>
-              <div>Price: {shoe.price}</div>
-              <div>Bids: {shoe.bids}</div>
-              <div>Highest Bidder: {shoe.highBidder}</div>
-              <div class='modifiers'>
-                <IncreaseBid increaseBid={this.increaseBid} id={shoe.id} />
-                <DeleteShoes deleteShoes={this.deleteShoes} id={shoe.id} />
-                <ChangeCondition changeCondition={this.changeCondition} id={shoe.id} />
+          <div class='images'>
+            <img src='https://i.pinimg.com/564x/0b/b4/06/0bb406488c67d168eec5416c4a330261.jpg' height='250px' width='275px' alt="Tan Slanted Oxfords" border='2px solid black' />
+            <img src='https://i.pinimg.com/564x/c2/b6/ca/c2b6ca95ac415c720df1e6faa105ecc0.jpg' height='250px' width='275px' alt="Shiny Brown Chukkas" border='2px solid black' />
+            <img src='https://i.pinimg.com/564x/16/57/50/165750923310ace5820b5a40cec7a3b1.jpg' height='250px' width='275px' alt="Ginanni Henry Boots" border='2px solid black' />
+            <img src='https://i.pinimg.com/564x/c4/ea/71/c4ea711ab14ce79430344cb59ebc96f6.jpg' height='250px' width='275px' alt="Taft Rome Boots" border='2px solid black' />
+
+
+
+          </div>
+
+          <div class='listings'>
+            {this.state.shoes.map((shoe) => {
+              return <div class='shoelisting'>
+                <div>Brand: {shoe.brand}</div>
+                <div>Model: {shoe.model}</div>
+                <div>Size: {shoe.size}</div>
+                <div>Condition: {shoe.condition}</div>
+                <div>Price $: {shoe.price}</div>
+                <div>Bids: {shoe.bids}</div>
+                <div>Highest Bidder: {shoe.highBidder}</div>
+                <div class='modifiers'>
+                  <IncreaseBid increaseBid={this.increaseBid} id={shoe.id} />
+                  <DeleteShoes deleteShoes={this.deleteShoes} id={shoe.id} />
+                  <ChangeCondition changeCondition={this.changeCondition} id={shoe.id} />
+                </div>
+
               </div>
 
-            </div>
-          })}
+            })}
+          </div>
         </div>
       </div>
     );

@@ -3,18 +3,17 @@ import './App.css';
 
 import CombinedComponent from './components/CombinedComponents'
 
-class App extends Component{
+class App extends Component {
 
 
 
 
 
-  render(){
-    return(
+  render() {
+    return (
 
       <div className='App'>
-        <CombinedComponent/>
-        <div>Right Pic</div>
+        <CombinedComponent />
       </div>
     )
   }
